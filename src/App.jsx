@@ -28,9 +28,11 @@ function App() {
       <RendersSection />
       <PhotosSection />
       <UeSection />
-      <AboutSection />
-      <ContactSection />
       <Footer />
+
+      <AboutSection />
+
+      <ContactSection />
       <SubFooter />
     </>
   )
