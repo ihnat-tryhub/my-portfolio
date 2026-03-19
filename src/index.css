@@ -147,11 +147,22 @@ body {
   opacity: 1;
 }
 
-/* Та самая красная точка */
+/* Zoom and Interactive Image Hover Styles */
 .cursor-zoom {
   cursor: zoom-in;
+  overflow: hidden;
 }
 
+.cursor-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.cursor-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Та самая красная точка */
 .dot {
   color: var(--accent);
   display: inline-block;
@@ -231,15 +242,24 @@ body {
 
 /* Scroll indicator */
 .scroll-explore {
-  position: absolute;
+  /* Чтобы transform: translateX(-50%) работал, нужен absolute или fixed */
+  position: absolute; 
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   opacity: 0;
-  animation: fadeInUp 1s ease forwards, bounceScroll 2s infinite ease-in-out;
-  animation-delay: 1s, 2s; /* Fade in at 1s, start bounce at 2s */
+  cursor: pointer;
+  
+  /* Объединяем анимации для чистоты кода */
+  /* fadeInUp: 1s, задержка 1s */
+  /* bounceScroll: 2s, бесконечно, задержка 2s */
+  animation: 
+    fadeInUp 1s ease 1s forwards, 
+    bounceScroll 2s ease-in-out 2s infinite;
 }
+
+
 
 .scroll-explore span {
   font-family: 'Nunito', sans-serif;
@@ -402,6 +422,12 @@ letter-spacing: 7.2px;
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.uxui-image:hover {
+  transform: scale(1.05);
 }
 
 .uxui-item-title {
@@ -482,7 +508,7 @@ letter-spacing: 7.2px;
   max-width: 100%;
   gap: 32px; 
   padding: 0;
-  border-radius: 12px;
+  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
@@ -500,6 +526,13 @@ letter-spacing: 7.2px;
   height: auto;
   object-fit: cover;
   aspect-ratio: 70 / 99;
+  border-radius: 25px;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.typography-card-img:hover {
+  transform: scale(1.05);
 }
 
 .typography-card-title {
@@ -531,7 +564,7 @@ letter-spacing: 7.2px;
   width: 100%;
   max-width: 100%;
   padding: 0;
-  border-radius: 12px;
+  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
@@ -541,6 +574,13 @@ letter-spacing: 7.2px;
   max-width: 100%;
   aspect-ratio: 1135 / 568;
   object-fit: cover;
+  border-radius: 25px;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.typography-modernist-img:hover {
+  transform: scale(1.05);
 }
 
 /* Adaptive styles for Typography */
@@ -624,7 +664,7 @@ letter-spacing: 7.2px;
   width: 100%;
   max-width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 0;
   align-items: flex-start;
@@ -634,6 +674,7 @@ letter-spacing: 7.2px;
 
 .collage-img-wrapper {
   width: 100%;
+  aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -648,6 +689,7 @@ letter-spacing: 7.2px;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 25px;
 }
 
 .collage-card-title {
@@ -737,7 +779,7 @@ letter-spacing: 7.2px;
   width: 100%;
   max-width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 0;
   align-items: flex-start;
@@ -750,6 +792,7 @@ letter-spacing: 7.2px;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  border-radius: 25px;
 }
 
 .renders-img {
@@ -841,7 +884,7 @@ letter-spacing: 7.2px;
   width: 100%;
   max-width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 0;
   align-items: flex-start;
@@ -860,6 +903,7 @@ letter-spacing: 7.2px;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 25px;
 }
 
 .photos-card-title {

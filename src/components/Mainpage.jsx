@@ -26,7 +26,10 @@ const Mainpage = () => {
           </div>
         </div>
 
-        <div className="scroll-explore">
+        <div 
+          className="scroll-explore"
+          onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+        >
           <span>SCROLL TO EXPLORE</span>
           <div className="scroll-line"></div>
         </div>

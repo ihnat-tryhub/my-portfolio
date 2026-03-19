@@ -38,7 +38,7 @@ const ImageModal = ({ isOpen, src, alt, onClose }) => {
 
     return (
         <div className={`modal-overlay ${isClosing ? 'closing-overlay' : ''}`} onClick={triggerClose}>
-            <div className={`modal-content ${isClosing ? 'closing-content' : ''}`} onClick={e => e.stopPropagation()}>
+            <div className={`modal-content ${isClosing ? 'closing-content' : ''}`}>
                 <img src={src} alt={alt || "Full screen image"} className="modal-img" />
                 <button className="modal-close-btn" onClick={triggerClose} aria-label="Close modal">
                     &times;
