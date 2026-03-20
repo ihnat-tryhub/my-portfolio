@@ -19,8 +19,8 @@ const RendersSection = () => {
                 <div className="renders-grid">
                     
                     <div className="renders-card">
-                        <div className="renders-img-wrapper cursor-zoom" onClick={() => openModal("/3D Renders/Chrome Seraphim.png")}>
-                            <img src="/3D Renders/Chrome Seraphim.png" alt="Chrome Seraphim" className="renders-img" />
+                        <div className="renders-img-wrapper cursor-zoom" onClick={() => openModal("/3D Renders/Chrome Seraphim.jpg")}>
+                            <img src="/3D Renders/Chrome Seraphim.jpg" alt="Chrome Seraphim" className="renders-img" />
                         </div>
                         <h3 className="renders-card-title">Chrome Seraphim</h3>
                     </div>
@@ -33,15 +33,15 @@ const RendersSection = () => {
                     </div>
 
                     <div className="renders-card">
-                        <div className="renders-img-wrapper cursor-zoom" onClick={() => openModal("/3D Renders/The Quiet Monument.png")}>
-                            <img src="/3D Renders/The Quiet Monument.png" alt="The Quiet Monument" className="renders-img" />
+                        <div className="renders-img-wrapper cursor-zoom" onClick={() => openModal("/3D Renders/The Quiet Monument.jpg")}>
+                            <img src="/3D Renders/The Quiet Monument.jpg" alt="The Quiet Monument" className="renders-img" />
                         </div>
                         <h3 className="renders-card-title">The Quiet Monument</h3>
                     </div>
 
                     <div className="renders-card">
-                        <div className="renders-img-wrapper cursor-zoom" onClick={() => openModal("/3D Renders/Aurora Vesta.png")}>
-                            <img src="/3D Renders/Aurora Vesta.png" alt="Aurora Vesta" className="renders-img" />
+                        <div className="renders-img-wrapper cursor-zoom" onClick={() => openModal("/3D Renders/Aurora Vesta.jpg")}>
+                            <img src="/3D Renders/Aurora Vesta.jpg" alt="Aurora Vesta" className="renders-img" />
                         </div>
                         <h3 className="renders-card-title">Aurora Vesta</h3>
                     </div>
