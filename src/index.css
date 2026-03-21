@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background-color: #000;
+  /* background-color: #000; */
   overflow-x: hidden; /* Убирает лишнюю горизонтальную прокрутку */
 }
 
@@ -148,6 +148,10 @@ body {
 }
 
 /* Та самая красная точка */
+.cursor-zoom {
+  cursor: zoom-in;
+}
+
 .dot {
   color: var(--accent);
   display: inline-block;
@@ -264,7 +268,7 @@ body {
 }
 
 .work-projects__container {
-  max-width: 1280px;
+  max-width: 1480px;
   width: 100%;
   min-height: 626.5px;
   display: flex;
@@ -329,9 +333,9 @@ body {
 
 .uxui-wrapper {
   display: flex;
-  max-width: 1280px;
+  max-width: 1480px;
   width: 100%;
-  padding: 96px 48px;
+  padding: 150px 48px;
   flex-direction: column;
   align-items: center;
   gap: 48px;
@@ -377,7 +381,8 @@ letter-spacing: 7.2px;
   flex: 1; 
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 20px 20px 32px 20px;
+  padding: 0;
+  overflow: hidden;
 }
 
 /* Другий елемент */
@@ -396,10 +401,11 @@ letter-spacing: 7.2px;
 .uxui-image {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .uxui-item-title {
+  padding: 0 24px;
   color: #FFF;
   font-family: 'Playfair Display', serif;
   font-size: 24px;
@@ -411,6 +417,7 @@ letter-spacing: 7.2px;
 }
 
 .uxui-item-desc {
+  padding: 0 24px 32px 24px;
   color: #64748B;
   font-family: 'Manrope', var(--font-sans);
   font-size: 14px;
@@ -451,9 +458,9 @@ letter-spacing: 7.2px;
 
 .typography-wrapper {
   display: flex;
-  max-width: 1280px;
+  max-width: 1480px;
   width: 100%;
-  padding: 96px 48px;
+  padding: 150px 48px;
   flex-direction: column;
   align-items: flex-start;
   gap: 48px;
@@ -470,25 +477,28 @@ letter-spacing: 7.2px;
 .typography-card {
   display: flex;
   flex-direction: column;
-  width: 568px;
+  flex: 1;
+  width: 100%;
   max-width: 100%;
   gap: 32px; 
-  padding: 18px 23px 32px 23px;
+  padding: 0;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
 }
 
 .typography-text-box {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 0 32px 32px 32px;
 }
 
 .typography-card-img {
-  width: 507px;
+  width: 100%;
   max-width: 100%;
-  height: 717px;
-  object-fit: contain;
+  height: auto;
+  object-fit: cover;
   aspect-ratio: 70 / 99;
 }
 
@@ -512,32 +522,25 @@ letter-spacing: 7.2px;
   text-transform: uppercase;
 }
 
-.typography-modernist-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 32px;
-  margin-top: 31px; /* 79px total space from above elements, considering the existing 48px gap from .typography-wrapper! */
-}
-
 .typography-modernist-img-container {
-  margin-top: 79px; 
+  margin-top: 110px; 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
-  width: 1201px;
+  width: 100%;
   max-width: 100%;
-  padding: 33px;
+  padding: 0;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
 }
 
 .typography-modernist-img {
-  width: 1135px;
+  width: 100%;
   max-width: 100%;
   aspect-ratio: 1135 / 568;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* Adaptive styles for Typography */
@@ -573,12 +576,12 @@ letter-spacing: 7.2px;
 }
 
 .collages-wrapper {
-  display: inline-flex;
-  width: 1280px;
-  max-width: 100%;
-  padding: 96px 0 0 48px;
+  display: flex;
+  width: 100%;
+  max-width: 1480px;
+  padding: 150px 48px;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   gap: 48px;
   background: rgba(10, 10, 10, 0.50);
@@ -618,29 +621,33 @@ letter-spacing: 7.2px;
 .collage-card {
   display: flex;
   flex-direction: column;
-  width: 580px;
+  width: 100%;
   max-width: 100%;
-  height: 675px;
+  height: auto;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 20px 20px 0 20px;
+  padding: 0;
   align-items: flex-start;
+  transition: transform 0.3s;
+  overflow: hidden;
 }
 
 .collage-img-wrapper {
   width: 100%;
-  flex: 1;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  cursor: zoom-in;
+}
+
+.tall-collage .collage-img-wrapper {
+  aspect-ratio: 53 / 75;
 }
 
 .collage-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 8px; /* Slight roundness for visual match inside wrapper */
-  border-top-right-radius: 8px;
 }
 
 .collage-card-title {
@@ -650,7 +657,7 @@ letter-spacing: 7.2px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5; 
-  margin: 32px 0;
+  margin: 32px 24px;
 }
 
 /* Adaptive styles for Collages */
@@ -666,7 +673,9 @@ letter-spacing: 7.2px;
   .collage-card {
       width: 100%;
       height: auto;
-      aspect-ratio: 580 / 675;
+  }
+  .tall-collage .collage-img-wrapper {
+      aspect-ratio: 53 / 75;
   }
 }
 
@@ -680,12 +689,12 @@ letter-spacing: 7.2px;
 }
 
 .renders-wrapper {
-  display: inline-flex;
-  width: 1280px;
-  max-width: 100%;
-  padding: 96px 0 0 48px;
+  display: flex;
+  width: 100%;
+  max-width: 1480px;
+  padding: 150px 48px;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   gap: 48px;
   background: rgba(10, 10, 10, 0.50);
@@ -725,18 +734,19 @@ letter-spacing: 7.2px;
 .renders-card {
   display: flex;
   flex-direction: column;
-  width: 580px;
+  width: 100%;
   max-width: 100%;
-  height: 675px;
+  height: auto;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 20px 20px 0 20px;
+  padding: 0;
   align-items: flex-start;
+  overflow: hidden;
 }
 
 .renders-img-wrapper {
   width: 100%;
-  flex: 1;
+  aspect-ratio: 313 / 176;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -746,8 +756,6 @@ letter-spacing: 7.2px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 8px; /* Slight roundness for visual match inside wrapper */
-  border-top-right-radius: 8px;
 }
 
 .renders-card-title {
@@ -757,7 +765,7 @@ letter-spacing: 7.2px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5; 
-  margin: 32px 0;
+  margin: 32px 24px;
 }
 
 /* Adaptive styles for Renders */
@@ -770,10 +778,8 @@ letter-spacing: 7.2px;
       grid-template-columns: 1fr;
   }
   
-  .renders-card {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 580 / 675;
+  .renders-img-wrapper {
+      aspect-ratio: 313 / 176;
   }
 }
 
@@ -787,12 +793,12 @@ letter-spacing: 7.2px;
 }
 
 .photos-wrapper {
-  display: inline-flex;
-  width: 1280px;
-  max-width: 100%;
-  padding: 96px 0 0 48px;
+  display: flex;
+  width: 100%;
+  max-width: 1480px;
+  padding: 150px 48px;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   gap: 48px;
   background: rgba(10, 10, 10, 0.50);
@@ -832,18 +838,19 @@ letter-spacing: 7.2px;
 .photos-card {
   display: flex;
   flex-direction: column;
-  width: 580px;
+  width: 100%;
   max-width: 100%;
-  height: 675px;
+  height: auto;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 20px 20px 0 20px;
+  padding: 0;
   align-items: flex-start;
+  overflow: hidden;
 }
 
 .photos-img-wrapper {
   width: 100%;
-  flex: 1;
+  aspect-ratio: 658 / 439;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -853,8 +860,6 @@ letter-spacing: 7.2px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 8px; /* Slight roundness for visual match inside wrapper */
-  border-top-right-radius: 8px;
 }
 
 .photos-card-title {
@@ -864,7 +869,7 @@ letter-spacing: 7.2px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5; 
-  margin: 32px 0;
+  margin: 32px 24px;
 }
 
 /* Adaptive styles for Photos */
@@ -877,10 +882,8 @@ letter-spacing: 7.2px;
       grid-template-columns: 1fr;
   }
   
-  .photos-card {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 580 / 675;
+  .photos-img-wrapper {
+      aspect-ratio: 658 / 439;
   }
 }
 
@@ -894,12 +897,12 @@ letter-spacing: 7.2px;
 }
 
 .ue-wrapper {
-  display: inline-flex;
-  width: 1280px;
-  max-width: 100%;
-  padding: 96px 0 20px 48px;
+  display: flex;
+  width: 100%;
+  max-width: 1480px;
+  padding: 150px 48px;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   gap: 48px;
   background: rgba(10, 10, 10, 0.50);
@@ -939,12 +942,13 @@ letter-spacing: 7.2px;
 .ue-card {
   display: flex;
   flex-direction: column;
-  width: 580px;
+  width: 100%;
   max-width: 100%;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 20px 20px 0 20px;
+  padding: 0;
   align-items: flex-start;
+  overflow: hidden;
 }
 
 .ue-video-wrapper {
@@ -952,17 +956,12 @@ letter-spacing: 7.2px;
   display: flex;
   justify-content: center;
   overflow: hidden;
-  /* Making it slightly rounded at the top inside the card */
-  border-top-left-radius: 8px; 
-  border-top-right-radius: 8px;
 }
 
 .ue-video {
   width: 100%;
   height: auto;
   object-fit: contain;
-  border-top-left-radius: 8px; 
-  border-top-right-radius: 8px;
 }
 
 .ue-card-title {
@@ -972,7 +971,7 @@ letter-spacing: 7.2px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5; 
-  margin: 32px 0;
+  margin: 32px 24px;
 }
 
 /* Adaptive styles for Unreal Engine */
@@ -994,23 +993,21 @@ letter-spacing: 7.2px;
 /* --- ABOUT SECTION --- */
 .about-section {
   display: flex;
-  width: 1671px;
-  max-width: 100%;
-  padding-top: 64px;
+  width: 100%;
+  padding-top: 150px;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin:150px auto 0 auto;
 }
 
 .about-wrapper {
   display: flex;
-  width: 1671px;
-  height: 861px;
-  padding: 0 0.5px 0 40px;
-  justify-content: flex-end;
+  width: 100%;
+  max-width: 1480px;
+  padding: 0 48px;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 87.5px;
-  flex-shrink: 0;
 }
 
 .about-left {
@@ -1227,7 +1224,7 @@ letter-spacing: 7.2px;
   color: #D41121;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1480px) {
   .about-wrapper {
       flex-direction: column;
       height: auto;
@@ -1246,13 +1243,13 @@ letter-spacing: 7.2px;
 /* --- CONTACT SECTION --- */
 .contact-section {
   display: flex;
-  width: 1920px;
+  width: 100%;
   max-width: 100%;
-  padding: 96px 80px;
+  padding: 150px 48px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 150px auto 0 auto;
 }
 
 .contact-wrapper {
@@ -1260,7 +1257,7 @@ letter-spacing: 7.2px;
   flex-direction: column;
   width: 100%;
   gap: 40px;
-  max-width: 1280px;
+  max-width: 1480px;
 }
 
 .contact-header {
@@ -1498,13 +1495,13 @@ letter-spacing: 7.2px;
 }
 
 .footer-container {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 127px 15px 104px 0;
+  padding: 127px 48px 104px 48px;
   gap: 75px;
-  width: 1280px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1480px;
   border-top: 1px solid #1A1A1A;
 }
 
@@ -1574,12 +1571,14 @@ letter-spacing: 7.2px;
 .sub-footer {
   display: flex;
   height: 120px;
-  padding: 40px;
+  padding: 40px 48px;
+  max-width: 1480px;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   background-color: transparent;
-border-top: 1px solid rgba(212, 17, 33, 0.20);
+  border-top: 1px solid rgba(212, 17, 33, 0.20);
 opacity: 0.8;
 }
 

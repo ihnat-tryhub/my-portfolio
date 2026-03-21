@@ -1,7 +1,10 @@
+import Hero3D from './Hero3D';
+
 const Mainpage = () => {
   return (
     <main className="hero" id="home">
-        <div className="hero__content">
+        <Hero3D />
+        <div className="hero__content" style={{ zIndex: 1, position: 'relative' }}>
           <h1 className="hero__title">
             Interactive<br />Media<br />Designer<span className="dot">.</span>
           </h1>

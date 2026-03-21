@@ -52,14 +52,16 @@ const SideNav = () => {
             <div className="side-nav-dots">
                 {sections.map((section) => (
                     <div key={section.id} className="side-nav-item">
-                        <span className={`side-nav-label ${activeSection === section.id ? 'active' : ''}`}>
-                            {section.label}
-                        </span>
                         <a 
                             href={`#${section.id}`} 
-                            className={`side-nav-dot ${activeSection === section.id ? 'active' : ''}`}
+                            className="side-nav-link"
                             aria-label={`Scroll to ${section.label}`}
-                        ></a>
+                        >
+                            <span className={`side-nav-label ${activeSection === section.id ? 'active' : ''}`}>
+                                {section.label}
+                            </span>
+                            <span className={`side-nav-dot ${activeSection === section.id ? 'active' : ''}`}></span>
+                        </a>
                     </div>
                 ))}
             </div>

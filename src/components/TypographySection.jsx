@@ -30,16 +30,13 @@ const TypographySection = () => {
 
                 </div>
 
-                <div className="typography-modernist-card">
-                    <div className="typography-modernist-img-container">
-                        <img src="/Typography/The Modernist.png" alt="The Modernist" className="typography-modernist-img" />
+                <div className="typography-modernist-img-container">
+                    <img src="/Typography/The Modernist.png" alt="The Modernist" className="typography-modernist-img" />
 
-                        <div className="typography-text-box">
-                            <h3 className="typography-card-title">The Modernist</h3>
-                            <p className="typography-card-desc">MAGAZINE SPREAD</p>
-                        </div>
+                    <div className="typography-text-box">
+                        <h3 className="typography-card-title">The Modernist</h3>
+                        <p className="typography-card-desc">MAGAZINE SPREAD</p>
                     </div>
-
                 </div>
 
             </div>
