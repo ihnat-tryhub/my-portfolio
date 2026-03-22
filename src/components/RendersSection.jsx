@@ -26,8 +26,8 @@ const RendersSection = () => {
                     </div>
 
                     <div className="renders-card">
-                        <div className="renders-img-wrapper cursor-zoom" onClick={() => openModal("/3D Renders/Onyx Equine with Core.png")}>
-                            <img src="/3D Renders/Onyx Equine with Core.png" alt="Onyx Equine with Core" className="renders-img" />
+                        <div className="renders-img-wrapper cursor-zoom" onClick={() => openModal("/3D Renders/Onyx Equine with Core.jpg")}>
+                            <img src="/3D Renders/Onyx Equine with Core.jpg" alt="Onyx Equine with Core" className="renders-img" />
                         </div>
                         <h3 className="renders-card-title">Onyx Equine with Core</h3>
                     </div>

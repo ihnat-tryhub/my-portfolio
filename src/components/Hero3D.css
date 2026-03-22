@@ -1,37 +1,40 @@
 .hero-3d-container {
     position: absolute;
-    right: 15%; /* Keeps it balanced between the text and the side nav */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 600px;
-    height: 600px;
-    z-index: 0;
-    pointer-events: auto; /* Let users spin it */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    z-index: 0; /* The container itself */
+    pointer-events: none; /* Make background completely unclickable */
     opacity: 0.9;
-    cursor: grab;
+    overflow: hidden;
 }
 
-.hero-3d-container:active {
-    cursor: grabbing;
+.hero-3d-container canvas {
+    outline: none;
 }
 
-@media (max-width: 1480px) {
-    .hero-3d-container {
-        right: 10%;
-        width: 500px;
-        height: 500px;
-    }
+/* Ensure the hero content text is on top and clickable */
+.hero__content {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto; /* Click links inside text */
+}
+
+/* Ensure the scroll indicator is also on top */
+.scroll-explore {
+    z-index: 10;
+    pointer-events: auto;
 }
 
 @media (max-width: 1024px) {
     .hero-3d-container {
         position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
         width: 100%;
         height: 400px;
         margin-top: 40px;
         order: 2; /* Put it below the text on mobile */
+        z-index: 0;
     }
 }
