@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import ImageModal from './ImageModal';
 
+const uxuiData = [
+    { src: "/Ui/Mood Tracker.png", title: "Mood Tracker", desc: "DAILY EMOTION LOGGING" },
+    { src: "/Ui/Mental Wellness.png", title: "Mental Wellness", desc: "PERSONALIZED SELF-CARE TIPS" },
+    { src: "/Ui/Emotional Analytics.png", title: "Emotional Analytics", desc: "DATA-DRIVEN MOOD PATTERNS & STATS" }
+];
+
 const UxUiSection = () => {
     const [modalImage, setModalImage] = useState(null);
 
@@ -17,25 +23,13 @@ const UxUiSection = () => {
                 </div>
 
                 <div className="uxui-container">
-                    
-                    <div className="uxui-item">
-                        <img src="/Ui/Mood Tracker.png" alt="Mood Tracker" className="uxui-image cursor-zoom" onClick={() => openModal("/Ui/Mood Tracker.png")} />
-                        <h3 className="uxui-item-title">Mood Tracker</h3>
-                        <p className="uxui-item-desc">DAILY EMOTION LOGGING</p>
-                    </div>
-                    
-                    <div className="uxui-item">
-                        <img src="/Ui/Mental Wellness.png" alt="Mental Wellness" className="uxui-image cursor-zoom" onClick={() => openModal("/Ui/Mental Wellness.png")} />
-                        <h3 className="uxui-item-title">Mental Wellness</h3>
-                        <p className="uxui-item-desc">PERSONALIZED SELF-CARE TIPS</p>
-                    </div>
-
-                    <div className="uxui-item">
-                        <img src="/Ui/Emotional Analytics.png" alt="Emotional Analytics" className="uxui-image cursor-zoom" onClick={() => openModal("/Ui/Emotional Analytics.png")} />
-                        <h3 className="uxui-item-title">Emotional Analytics</h3>
-                        <p className="uxui-item-desc">DATA-DRIVEN MOOD PATTERNS & STATS</p>
-                    </div>
-
+                    {uxuiData.map((item, index) => (
+                        <div className="uxui-item" key={index}>
+                            <img src={item.src} alt={item.title} className="uxui-image cursor-zoom" onClick={() => openModal(item.src)} />
+                            <h3 className="uxui-item-title">{item.title}</h3>
+                            <p className="uxui-item-desc">{item.desc}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
             

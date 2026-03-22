@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import ImageModal from './ImageModal';
 
+const photosData = [
+    { src: "/Photos/Monochrome Geometry.jpg", title: "Monochrome Geometry" },
+    { src: "/Photos/Reaching for the Sky Soviet Brutalism.jpg", title: "Reaching for the Sky Soviet Brutalism" },
+    { src: "/Photos/The Quiet Echoes of Autumn.jpg", title: "The Quiet Echoes of Autumn" },
+    { src: "/Photos/Whispers of a Stray.jpg", title: "Whispers of a Stray" }
+];
+
 const PhotosSection = () => {
     const [modalImage, setModalImage] = useState(null);
 
@@ -17,35 +24,14 @@ const PhotosSection = () => {
                 </div>
 
                 <div className="photos-grid">
-                    
-                    <div className="photos-card">
-                        <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal("/Photos/Monochrome Geometry.jpg")}>
-                            <img src="/Photos/Monochrome Geometry.jpg" alt="Monochrome Geometry" className="photos-img" />
+                    {photosData.map((item, index) => (
+                        <div className="photos-card" key={index}>
+                            <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal(item.src)}>
+                                <img src={item.src} alt={item.title} className="photos-img" />
+                            </div>
+                            <h3 className="photos-card-title">{item.title}</h3>
                         </div>
-                        <h3 className="photos-card-title">Monochrome Geometry</h3>
-                    </div>
-
-                    <div className="photos-card">
-                        <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal("/Photos/Reaching for the Sky Soviet Brutalism.jpg")}>
-                            <img src="/Photos/Reaching for the Sky Soviet Brutalism.jpg" alt="Reaching for the Sky Soviet Brutalism" className="photos-img" />
-                        </div>
-                        <h3 className="photos-card-title">Reaching for the Sky Soviet Brutalism</h3>
-                    </div>
-
-                    <div className="photos-card">
-                        <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal("/Photos/The Quiet Echoes of Autumn.jpg")}>
-                            <img src="/Photos/The Quiet Echoes of Autumn.jpg" alt="The Quiet Echoes of Autumn" className="photos-img" />
-                        </div>
-                        <h3 className="photos-card-title">The Quiet Echoes of Autumn</h3>
-                    </div>
-
-                    <div className="photos-card">
-                        <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal("/Photos/Whispers of a Stray.jpg")}>
-                            <img src="/Photos/Whispers of a Stray.jpg" alt="Whispers of a Stray" className="photos-img" />
-                        </div>
-                        <h3 className="photos-card-title">Whispers of a Stray</h3>
-                    </div>
-
+                    ))}
                 </div>
             </div>
 
