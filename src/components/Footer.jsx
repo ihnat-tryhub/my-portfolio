@@ -6,7 +6,7 @@ const Footer = () => {
                 <h2 className="footer-title">
                     Let's build the<br />future together<span className="dot">.</span>
                 </h2>
-                <a href="#" className="footer-btn">
+                <a href="#contact" className="footer-btn">
                     Start a project
                 </a>
             </div>
