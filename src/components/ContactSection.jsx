@@ -1,6 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ContactSection = () => {
+    const [status, setStatus] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("Sending...");
+        
+        const formData = new FormData(e.target);
+        
+        // Replace with your Web3Forms access key
+        formData.append("access_key", "2b1b3927-583d-48ed-b93f-ca39d7eef5e0");
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            }).then(res => res.json());
+
+            if (res.success) {
+                setStatus("Message sent successfully!");
+                e.target.reset();
+            } else {
+                setStatus("Failed to send message.");
+            }
+        } catch (error) {
+            setStatus("An error occurred. Please try again.");
+        }
+    };
+
     return (
         <section className="contact-section" id="contact">
             <div className="contact-wrapper">
@@ -45,7 +73,7 @@ const ContactSection = () => {
                             </div>
                         </a>
 
-                        <a href="#" className="contact-link-card">
+                        <a href="https://t.me/fyism" className="contact-link-card">
                             <div className="contact-icon-wrapper">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D41121" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                             </div>
@@ -64,7 +92,7 @@ const ContactSection = () => {
                             </div>
                             <div className="contact-info">
                                 <span className="contact-label">LINKEDIN</span>
-                                <span className="contact-value">/in/ksenija-interactive</span>
+                                <span className="contact-value">/ksenija-kriukova</span>
                             </div>
                             <div className="contact-arrow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64748B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -86,30 +114,38 @@ const ContactSection = () => {
                     </div>
 
                     {/* Right Column - Form */}
-                    <div className="contact-form-container">
+                    <form className="contact-form-container" onSubmit={handleSubmit}>
                         <h3 className="form-title">DIRECT MESSAGE</h3>
                         
                         <div className="form-row">
                             <div className="form-group">
                                 <label className="form-label">YOUR NAME</label>
-                                <input type="text" className="form-input" placeholder="REQUIRED" />
+                                <input type="text" name="name" required className="form-input" placeholder="REQUIRED" />
                             </div>
                             <div className="form-group">
                                 <label className="form-label">EMAIL ADDRESS</label>
-                                <input type="email" className="form-input" placeholder="REQUIRED" />
+                                <input type="email" name="email" required className="form-input" placeholder="REQUIRED" />
                             </div>
                         </div>
 
                         <div className="form-group">
                             <label className="form-label">YOUR MESSAGE</label>
-                            <textarea className="form-textarea" placeholder="WHAT'S ON YOUR MIND?"></textarea>
+                            <textarea name="message" required className="form-textarea" placeholder="WHAT'S ON YOUR MIND?"></textarea>
                         </div>
 
-                        <button className="form-submit-btn">
-                            SEND MESSAGE 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        <button type="submit" className="form-submit-btn" disabled={status === "Sending..."} style={{ opacity: status === "Sending..." ? 0.7 : 1 }}>
+                            {status === "Sending..." ? "SENDING..." : "SEND MESSAGE"} 
+                            {status !== "Sending..." && (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            )}
                         </button>
-                    </div>
+
+                        {status && status !== "Sending..." && (
+                            <div style={{ color: status === "Message sent successfully!" ? "#4ade80" : "#D41121", marginTop: "16px", fontSize: "14px", fontFamily: "var(--font-sans)", fontWeight: "700" }}>
+                                {status}
+                            </div>
+                        )}
+                    </form>
 
                 </div>
             </div>

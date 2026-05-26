@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ImageModal from './ImageModal';
 
 const PhotosSection = () => {
+    const [modalImage, setModalImage] = useState(null);
+
+    const openModal = (src) => setModalImage(src);
+    const closeModal = () => setModalImage(null);
+
     return (
         <section className="photos-section" id="photos">
             <div className="photos-wrapper">
@@ -13,28 +19,28 @@ const PhotosSection = () => {
                 <div className="photos-grid">
                     
                     <div className="photos-card">
-                        <div className="photos-img-wrapper">
+                        <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal("/Photos/Monochrome Geometry.png")}>
                             <img src="/Photos/Monochrome Geometry.png" alt="Monochrome Geometry" className="photos-img" />
                         </div>
                         <h3 className="photos-card-title">Monochrome Geometry</h3>
                     </div>
 
                     <div className="photos-card">
-                        <div className="photos-img-wrapper">
+                        <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal("/Photos/Reaching for the Sky Soviet Brutalism.png")}>
                             <img src="/Photos/Reaching for the Sky Soviet Brutalism.png" alt="Reaching for the Sky Soviet Brutalism" className="photos-img" />
                         </div>
                         <h3 className="photos-card-title">Reaching for the Sky Soviet Brutalism</h3>
                     </div>
 
                     <div className="photos-card">
-                        <div className="photos-img-wrapper">
+                        <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal("/Photos/The Quiet Echoes of Autumn.png")}>
                             <img src="/Photos/The Quiet Echoes of Autumn.png" alt="The Quiet Echoes of Autumn" className="photos-img" />
                         </div>
                         <h3 className="photos-card-title">The Quiet Echoes of Autumn</h3>
                     </div>
 
                     <div className="photos-card">
-                        <div className="photos-img-wrapper">
+                        <div className="photos-img-wrapper cursor-zoom" onClick={() => openModal("/Photos/Whispers of a Stray.png")}>
                             <img src="/Photos/Whispers of a Stray.png" alt="Whispers of a Stray" className="photos-img" />
                         </div>
                         <h3 className="photos-card-title">Whispers of a Stray</h3>
@@ -42,6 +48,12 @@ const PhotosSection = () => {
 
                 </div>
             </div>
+
+            <ImageModal 
+                isOpen={!!modalImage} 
+                src={modalImage} 
+                onClose={closeModal} 
+            />
         </section>
     );
 };
