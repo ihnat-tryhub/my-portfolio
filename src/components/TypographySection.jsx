@@ -27,7 +27,7 @@ const TypographySection = () => {
                     </div>
                     
                     <div className="typography-card">
-                        <img src="/Typography/Tipotrip.png" alt="Tipotrip" className="typography-card-img cursor-zoom" onClick={() => openModal("/Typography/Tipotrip.png")} />
+                        <img src="/Typography/Tipotrip.jpg" alt="Tipotrip" className="typography-card-img cursor-zoom" onClick={() => openModal("/Typography/Tipotrip.jpg")} />
                         <div className="typography-text-box">
                             <h3 className="typography-card-title">Tipotrip</h3>
                             <p className="typography-card-desc">CUSTOM TYPOGRAPHY</p>
