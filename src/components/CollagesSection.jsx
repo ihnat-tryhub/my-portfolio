@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import ImageModal from './ImageModal';
 
+const collagesData = [
+    { src: "/CollagesPosters/Digital Vandalism.png", title: "Digital Vandalism" },
+    { src: "/CollagesPosters/Neo Bauhaus.png", title: "Neo Bauhaus" },
+    { src: "/CollagesPosters/Concrete Utopia.png", title: "Concrete Utopia", isTall: true },
+    { src: "/CollagesPosters/Brutalism.png", title: "Solar Brutalism", isTall: true }
+];
+
 const CollagesSection = () => {
     const [modalImage, setModalImage] = useState(null);
 
@@ -17,35 +24,14 @@ const CollagesSection = () => {
                 </div>
 
                 <div className="collages-grid">
-                    
-                    <div className="collage-card">
-                        <div className="collage-img-wrapper cursor-zoom" onClick={() => openModal("/CollagesPosters/Digital Vandalism.png")}>
-                            <img src="/CollagesPosters/Digital Vandalism.png" alt="Digital Vandalism" className="collage-img" />
+                    {collagesData.map((item, index) => (
+                        <div className={`collage-card ${item.isTall ? 'tall-collage' : ''}`} key={index}>
+                            <div className="collage-img-wrapper cursor-zoom" onClick={() => openModal(item.src)}>
+                                <img src={item.src} alt={item.title} className="collage-img" />
+                            </div>
+                            <h3 className="collage-card-title">{item.title}</h3>
                         </div>
-                        <h3 className="collage-card-title">Digital Vandalism</h3>
-                    </div>
-
-                    <div className="collage-card">
-                        <div className="collage-img-wrapper cursor-zoom" onClick={() => openModal("/CollagesPosters/Neo Bauhaus.png")}>
-                            <img src="/CollagesPosters/Neo Bauhaus.png" alt="Neo Bauhaus" className="collage-img" />
-                        </div>
-                        <h3 className="collage-card-title">Neo Bauhaus</h3>
-                    </div>
-
-                    <div className="collage-card tall-collage">
-                        <div className="collage-img-wrapper cursor-zoom" onClick={() => openModal("/CollagesPosters/Concrete Utopia.png")}>
-                            <img src="/CollagesPosters/Concrete Utopia.png" alt="Concrete Utopia" className="collage-img" />
-                        </div>
-                        <h3 className="collage-card-title">Concrete Utopia</h3>
-                    </div>
-
-                    <div className="collage-card tall-collage">
-                        <div className="collage-img-wrapper cursor-zoom" onClick={() => openModal("/CollagesPosters/Brutalism.png")}>
-                            <img src="/CollagesPosters/Brutalism.png" alt="Solar Brutalism" className="collage-img" />
-                        </div>
-                        <h3 className="collage-card-title">Solar Brutalism</h3>
-                    </div>
-
+                    ))}
                 </div>
             </div>
 
