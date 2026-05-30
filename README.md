@@ -168,9 +168,9 @@ To deploy your own version:
 Feel free to reach out for collaborations or inquiries:
 
 - 🌐 **Website:** https://ksenijakruikova.vercel.app/
-- 📧 **Email:** [Your email]
-- 💼 **LinkedIn:** [Your LinkedIn]
-- 📱 **Instagram:** [Your Instagram]
+- 📧 **Email:** ihnat.tryhub@nure.ua
+- 💼 **LinkedIn:** https://www.linkedin.com/in/ihnat-tryhub/
+
 
 ---
 
